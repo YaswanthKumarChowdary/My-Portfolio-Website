@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaswanth Kumar Jillellamudi - Salesforce Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0A192F; /* Deep Navy */
+            --light-slate: #CCD6F6; /* Light text */
+            --slate: #8892B0; /* Subtler text, borders */
+            --accent-primary: #64FFDA; /* Bright Aqua/Teal - Main Accent */
+            --accent-secondary: #7FDBFF; /* Lighter Sky Blue for highlights */
+            --accent-primary-hover: #52D0B8;
+            --accent-secondary-hover: #6BC6E3;
+            --card-bg: #112240; /* Slightly lighter navy for cards/tabs */
+            --border-color: #233554;
+            --text-gradient: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg); /* This will be the fallback if the image doesn't load */
+            color: var(--light-slate);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden; /* Prevent horizontal scroll from subtle animations */
+
+            /* --- Dot pattern background properties --- */
+            background-image: radial-gradient(var(--border-color) 1px, transparent 1.5px); /* Creates dots: dot color, dot size, transparent gap */
+            background-size: 20px 20px; /* Spacing of the dots */
+            /* background-position is not strictly needed here as repeat handles it, but 0 0 is default */
+            background-repeat: repeat; /* Repeat the pattern */
+            background-attachment: fixed; /* Pattern stays fixed while scrolling */
+            /* --- End of dot pattern properties --- */
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: transparent; /* Header blends with body */
+            color: var(--light-slate);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            position: relative; /* For potential pseudo-elements */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            /* color: var(--accent-primary); */
+            font-weight: 700;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        header p {
+            font-size: 1.4rem;
+            color: var(--slate);
+            margin-top: 0.5rem;
+            /* You can add your email here if desired, e.g., */
+            /* content: "Salesforce Developer | jyaswanthj@gmail.com"; */
+        }
+        
+        /* Tab System */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .tab-link {
+            background-color: transparent;
+            color: var(--slate);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-link:hover {
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+        .tab-link.active {
+            color: var(--accent-primary);
+            border-bottom: 3px solid var(--accent-primary);
+        }
+        .tab-content {
+            display: none;
+            padding: 30px; /* Increased padding */
+            background: var(--card-bg);
+            border-radius: 8px;
+            animation: fadeIn 0.6s ease-out; /* Smoother animation */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Enhanced shadow */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section#pitch { /* Special styling for the pitch section */
+            padding: 30px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: var(--accent-primary);
+            border-bottom: none; /* Remove old border */
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 2rem; /* Slightly larger section titles */
+            font-weight: 600;
+            display: flex; /* For icon alignment */
+            align-items: center;
+        }
+        h2 .fas { /* Icon styling within h2 */
+            margin-right: 10px;
+            font-size: 1.8rem;
+            color: var(--accent-secondary);
+        }
+
+        p, ul li {
+            color: var(--light-slate);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        strong {
+            color: var(--accent-secondary); /* Use secondary accent for strong tags */
+            font-weight: 600;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            padding-left: 1.5em;
+            position: relative;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 4px; /* For hover effect */
+            margin-bottom: 0.8rem; /* Spacing between list items */
+        }
+        ul li:hover {
+            background-color: rgba(var(--accent-primary-rgb, 100, 255, 218), 0.05); /* Subtle hover on list items */
+            transform: translateX(5px);
+        }
+        ul li::before {
+            content: '▹'; /* Techy bullet */
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+            line-height: 1.7; /* Align with text */
+        }
+
+        .profile-picture-container {
+            float: right;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        .profile-picture {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-secondary);
+            box-shadow: 0 0 15px rgba(var(--accent-secondary-rgb, 127, 219, 255), 0.5);
+            /* Add a class for a placeholder image if you want to style it differently */
+        }
+
+        .job-title, .project-title {
+            font-weight: 600;
+            color: var(--light-slate);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .company-name, .project-client {
+            font-style: italic;
+            color: var(--slate);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .job-dates, .project-timeline {
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .job-description ul, .project-description ul {
+            margin-top: 0.5rem;
+            padding-left: 0; /* Reset padding as li::before handles indent */
+        }
+        .job-description ul li, .project-description ul li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .button {
+            display: inline-block;
+            background: var(--accent-primary);
+            color: var(--dark-bg); /* Text color for buttons */
+            padding: 12px 25px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .button:hover {
+            background: var(--accent-primary-hover);
+            transform: translateY(-3px); /* More pronounced hover */
+            box-shadow: 0 4px 10px rgba(var(--accent-primary-rgb, 100, 255, 218), 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--card-bg);
+            color: var(--slate);
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--slate);
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--dark-bg); /* Input background */
+            color: var(--light-slate); /* Input text color */
+            font-size: 1rem;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--slate);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb, 100, 255, 218), 0.3); /* Adjusted focus shadow */
+        }
+
+        .social-links {
+            margin-top: 25px;
+        }
+        .social-links p {
+            margin-bottom: 10px;
+            color: var(--slate);
+        }
+        .social-links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: var(--accent-primary);
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block; /* For transform */
+        }
+        .social-links a:hover {
+            color: var(--accent-primary-hover);
+            transform: scale(1.1);
+        }
+
+        /* Skill tags example styling */
+        .skills-container {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--border-color);
+            color: var(--accent-secondary);
+            padding: 6px 12px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .skill-tag:hover {
+            background-color: var(--accent-primary);
+            color: var(--dark-bg);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Yaswanth Kumar Jillellamudi</h1>
+            <p>Salesforce Developer</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="pitch">
+            <h2><i class="fas fa-rocket"></i> Welcome!</h2>
+            <p>
+                A <strong>Salesforce Developer</strong> with a passion for designing scalable solutions and optimizing business processes.
+                Explore my journey and projects below.
+            </p>
+            <button class="button" onclick="openTab(event, 'Contact', true)">Contact Me</button>
+        </section>
+
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'About')"><i class="fas fa-user-circle"></i> About</button>
+            <button class="tab-link" onclick="openTab(event, 'Experience')"><i class="fas fa-briefcase"></i> Experience</button>
+            <button class="tab-link" onclick="openTab(event, 'Projects')"><i class="fas fa-code-branch"></i> Projects</button>
+            <button class="tab-link" onclick="openTab(event, 'Contact')"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
+
+        <div id="About" class="tab-content" style="display:block;">
+            <h2><i class="fas fa-id-card"></i> About Me</h2>
+            <div class="profile-picture-container">
+                <img src="https://via.placeholder.com/180" alt="Yaswanth Kumar Jillellamudi" class="profile-picture">
+                <!-- IMPORTANT: Replace https://via.placeholder.com/180 with the actual path to your profile picture -->
+            </div>
+            <p>
+                Salesforce Developer with over <strong>5 years of experience</strong> designing scalable Salesforce solutions across financial, media, payroll, and enterprise domains. Skilled in Apex, LWC, Flows, Triggers, and REST/SOAP integrations. Strong track record of automating lead/opportunity management, supporting payroll data accuracy, and integrating third-party systems. Salesforce Certified Admin, Platform Developer I & II. Experienced in Agile, end-to-end SDLC, and business process optimization. Known for delivering with integrity, collaborating effectively across Agile teams, and taking ownership of business-critical solutions. Committed to continuous improvement and cross-functional support.
+            </p>
+            
+            <div class="skills-container">
+                <h3><i class="fas fa-cogs"></i> Technical & Analytical Skills</h3>
+                <span class="skill-tag">Apex</span>
+                <span class="skill-tag">Triggers</span>
+                <span class="skill-tag">Batch Apex</span>
+                <span class="skill-tag">LWC</span>
+                <span class="skill-tag">Aura</span>
+                <span class="skill-tag">SOQL</span>
+                <span class="skill-tag">SOSL</span>
+                <span class="skill-tag">Flows</span>
+                <span class="skill-tag">Validation Rules</span>
+                <span class="skill-tag">Process Builder</span>
+                <span class="skill-tag">REST API</span>
+                <span class="skill-tag">SOAP API</span>
+                <span class="skill-tag">MuleSoft</span>
+                <span class="skill-tag">Named Credentials</span>
+                <span class="skill-tag">JSON/XML</span>
+                <span class="skill-tag">VS Code</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Bitbucket</span>
+                <span class="skill-tag">Azure DevOps</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">Change Sets</span>
+                <span class="skill-tag">Summary Reports</span>
+                <span class="skill-tag">Matrix Reports</span>
+                <span class="skill-tag">Tabular Reports</span>
+                <span class="skill-tag">Joined Reports</span>
+                <span class="skill-tag">Dynamic Dashboards</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">JIRA</span>
+                <span class="skill-tag">Agile/Scrum</span>
+                <span class="skill-tag">Custom Metadata Types</span>
+                <span class="skill-tag">Custom Settings</span>
+                <span class="skill-tag">Junction Objects</span>
+                <span class="skill-tag">Apex Test Classes</span>
+                <span class="skill-tag">Deployment Validation</span>
+                <span class="skill-tag">Regression Testing</span>
+            </div>
+
+            <div class="education-container skills-container"> <!-- Re-use skills-container styling for consistency -->
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <ul>
+                    <li><strong>Master of Science in Business Analytics (MSBA)</strong> - Trine University, Phoenix, AZ (Dec 2024)</li>
+                    <li><strong>Master of Business Administration in Finance and Marketing (MBA)</strong> - Vignan Institute of Information Technology, Visakhapatnam, India (September 2022)</li>
+                    <li><strong>Bachelor’s Degree</strong> - Andhra University, Visakhapatnam, India (May 2019)</li>
+                </ul>
+            </div>
+
+            <div class="certifications-container skills-container"> <!-- Re-use skills-container styling for consistency -->
+                <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                <ul>
+                    <li>Salesforce Certified Administrator</li>
+                    <li>Salesforce Certified Platform Developer I</li>
+                    <li>Salesforce Certified Platform Developer II</li>
+                    <li>Financial Modeling & Valuation – CFI</li>
+                    <li>Excel Fundamentals for Data Analysis – Microsoft</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="Experience" class="tab-content">
+            <h2><i class="fas fa-history"></i> Professional Experience</h2>
+            <ul>
+                <li>
+                    <span class="job-title">Business Analyst</span>
+                    <span class="company-name">Brightmind Enrichment – San Francisco, CA</span>
+                    <span class="job-dates">March 2025 – Till Date</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Collaborate with cross-functional teams to optimize academic and payroll data workflows.</li>
+                            <li>Support reconciliation of employee attendance and payroll data.</li>
+                            <li>Generate ad-hoc reports and metrics to support program impact and operational audits.</li>
+                            <li>Assist in automating performance tracking and reporting through Excel and BI tools.</li>
+                            <li>Contributed to standardizing payroll exception reporting, reducing audit turnaround time.</li>
+                            <li>Coordinated with technical stakeholders to improve ETL workflows supporting HR/payroll systems.</li>
+                            <li>Documented process improvements and conducted knowledge transfers to operational teams.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="job-title">Salesforce Developer</span>
+                    <span class="company-name">Amigos Creations Private Limited – Hyderabad, India</span>
+                    <span class="job-dates">Jan 2021 – July 2023</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Designed an Experience Cloud audition portal (LWC + Apex REST) that captures 5,000+ profiles per film; Platform Events update “Candidate” dashboards in real time, eliminating manual uploads.</li>
+                            <li>Built Apex triggers & record-triggered flows to auto-score applicants and create Screen-Test tasks, cutting first-round screening 10 days → 2 days.</li>
+                            <li>Modeled a custom Film Budget object and multi-level approval chain (Dynamic Forms, Shield encryption), speeding CAPEX/OPEX sign-offs 60%.</li>
+                            <li>Integrated SAP S/4HANA finance via MuleSoft External Services and Named Credentials; data-sync accuracy hit 99.8% and retired weekly CSV imports.</li>
+                            <li>Migrated 40 Visualforce pages to LWCs, trimming mobile page-load times 45% and boosting on-set update adoption 30%.</li>
+                            <li>Wrote nightly Batch & Scheduled Apex jobs that reconcile box-office, OTT, and sponsorship revenue into Tableau CRM P&L dashboards.</li>
+                            <li>Introduced SFDX + GitHub Actions CI/CD (35 releases, 92% test coverage, zero rollbacks) and mentored 4 junior developers to PD1 certification.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="job-title">Salesforce Developer</span>
+                    <span class="company-name">VSPN & Co., Hyderabad, India</span>
+                    <span class="job-dates">July 2018 – Dec 2020</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Delivered Salesforce solutions for clients in banking, healthcare, and real estate domains.</li>
+                            <li>Developed Apex triggers, batch classes, and schedulable jobs to automate lead assignment logic for 100K+ daily leads.</li>
+                            <li>Integrated Salesforce with Oracle, PeopleSoft, and Tibco via REST/SOAP APIs and MuleSoft for seamless data sync.</li>
+                            <li>Automated lead conversion via Excel + Data Loader + Apex; reduced manual entry time from 23 to 5 mins.</li>
+                            <li>Built Opportunity Renewal automation using Flows and Custom Metadata to drive pricing logic (70+ factors).</li>
+                            <li>Developed Lightning components and UI features for product recommendations linked to Opportunities & Cases.</li>
+                            <li>Followed full SDLC processes and collaborated with DevOps teams to maintain consistent CI/CD pipelines via Azure DevOps and GitHub.</li>
+                            <li>Designed end-to-end Quote to Invoice process integrated with Oracle Financials.</li>
+                            <li>Migrated legacy Salesforce Classic pages to Lightning, improving usability and adoption.</li>
+                            <li>Configured dashboards and automated workflows for case management and escalation handling.</li>
+                            <li>Designed validation logic and duplicate detection rules to improve data hygiene across lead and contact records.</li>
+                            <li>Delivered post-deployment support, CI/CD troubleshooting, and environment monitoring to ensure reliable Salesforce performance through QA, UAT, and production.</li>
+                            <li>Developed unit tests and deployment validation scripts to maintain >85% code coverage during releases.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="Projects" class="tab-content">
+            <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
+            <ul>
+                <li>
+                    <span class="project-title">Payroll & Attendance Reconciliation – Brightmind Enrichment</span>
+                    <span class="project-timeline">Timeline: Mar 2025 – Present</span>
+                    <div class="project-description">
+                        <ul>
+                            <li>Developed Excel- and Power BI-based dashboards that reconcile ≈ 50K daily attendance and payroll rows via Bulk API.</li>
+                            <li>Added Python/SQL ETL and Flow-driven alerts, enabling real-time issue detection and cutting payroll discrepancies 50%.</li>
+                            <li>Automated monthly compliance snapshots for Finance, trimming audit turnaround time 60%.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="project-title">Casting & Finance Automation – Amigos Creations</span>
+                    <span class="project-timeline">Timeline: Jan 2021 – Jul 2023</span>
+                    <div class="project-description">
+                        <ul>
+                            <li>Experience Cloud Audition Portal: Built an LWC portal that captures ≈ 5,000 audition leads per film via Apex REST; Platform Events refresh “Candidate” dashboards instantly, eliminating CSV uploads.</li>
+                            <li>Screening & Task Automation: Wrote Apex triggers and record-triggered Flows to auto-score profiles and open Screen-Test tasks, shrinking first-round screening 10 d → 2 d.</li>
+                            <li>Budget & SAP Integration: Modeled a Shield-encrypted Film Budget object with multi-level approvals and synced spend/royalties to SAP S/4HANA through MuleSoft External Services (JSON/REST) with 99.8% accuracy.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="project-title">Lead Assignment Optimization – Banking Client (VSPN & Co.)</span>
+                    <span class="project-timeline">Timeline: Jun 2020 – Dec 2020</span>
+                    <div class="project-description">
+                        <ul>
+                            <li>Designed a metadata-driven Batch Apex router that distributes 100K+ leads/day according to rep bandwidth; backlog shrank 90%.</li>
+                            <li>Tuned SOQL and indexes, reducing nightly job runtime from 75 min → 15 min and speeding lead-to-contact conversions.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="project-title">Opportunity Renewal Automation – Real Estate Client (VSPN & Co.)</span>
+                    <span class="project-timeline">Timeline: Oct 2019 – May 2020</span>
+                    <div class="project-description">
+                        <ul>
+                            <li>Built Flow-based renewal engine using 70+ pricing factors stored in Custom Metadata; manual effort fell 75%.</li>
+                            <li>Added Scheduled Apex reminders and standardized email templates, boosting renewal engagement 28%.</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <span class="project-title">Quote-to-Invoice Automation – Healthcare Client (VSPN & Co.)</span>
+                    <span class="project-timeline">Timeline: Feb 2019 – Sep 2019</span>
+                    <div class="project-description">
+                        <ul>
+                            <li>Linked Salesforce CPQ to Oracle Financials via REST, cutting billing cycles 40% and pushing data accuracy to 99.9%.</li>
+                            <li>Implemented validation triggers and > 90% test coverage, delivering zero post-production defects.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="Contact" class="tab-content">
+            <h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
+            <p>Have a project in mind, or just want to say hi? Feel free to reach out.</p>
+            <form id="contactForm" action="https://formspree.io/f/xeokqqlo" method="POST">
+                <input type="hidden" name="_subject" value="New contact from your portfolio site!">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Hi, I think we need a Salesforce solution..."></textarea>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+            <div class="social-links">
+                <p>You can also find me on:</p>
+                <a href="https://twitter.com/YourTwitterHandle" target="_blank"><i class="fab fa-twitter"></i> Twitter</a> <!-- IMPORTANT: Update YourTwitterHandle -->
+                <a href="https://linkedin.com/in/YourLinkedInUsername" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a> <!-- IMPORTANT: Update YourLinkedInUsername -->
+                <a href="https://github.com/YourGitHubUsername" target="_blank"><i class="fab fa-github"></i> GitHub</a> <!-- IMPORTANT: Update YourGitHubUsername -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Yaswanth Kumar Jillellamudi. All rights reserved.</p>
+        <!-- Optional: Add Google Analytics script here if you have an ID -->
+        <!--
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR-ANALYTICS-ID"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-YOUR-ANALYTICS-ID'); // IMPORTANT: Replace with your Google Analytics ID
+        </script>
+        -->
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Define RGB versions of accent colors for RGBA usage
+        document.addEventListener('DOMContentLoaded', function() {
+            const rootStyles = getComputedStyle(document.documentElement);
+            
+            const accentPrimaryColor = rootStyles.getPropertyValue('--accent-primary').trim();
+            if (accentPrimaryColor) {
+                const accentPrimaryRgb = accentPrimaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '100, 255, 218'; // Default if parse fails
+                document.documentElement.style.setProperty('--accent-primary-rgb', accentPrimaryRgb);
+            }
+
+            const accentSecondaryColor = rootStyles.getPropertyValue('--accent-secondary').trim();
+            if (accentSecondaryColor) {
+                const accentSecondaryRgb = accentSecondaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '127, 219, 255'; // Default if parse fails
+                document.documentElement.style.setProperty('--accent-secondary-rgb', accentSecondaryRgb);
+            }
+            
+            openTab(null, 'About'); // Open 'About' tab by default
+            const aboutTabLink = document.querySelector('.tab-link[onclick*="\'About\'"]');
+            if(aboutTabLink && !aboutTabLink.classList.contains('active')) { // Check if not already active
+                aboutTabLink.className += ' active';
+            }
+        });
+
+
+        function openTab(evt, tabName, scrollToTab = false) {
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tab-content" and hide them
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tab-link" and remove the class "active"
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            const currentTab = document.getElementById(tabName);
+            if (currentTab) {
+                currentTab.style.display = "block";
+            }
+            
+            // If evt is a real event (from tab click), use currentTarget. Otherwise, find the button by tabName.
+            if (evt && evt.currentTarget) {
+                 evt.currentTarget.className += " active";
+            } else {
+                // Find the tab link that corresponds to tabName and make it active
+                // This is for the "Contact Me" button in the pitch section
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].textContent === tabName || tablinks[i].getAttribute('onclick').includes("'" + tabName + "'")) {
+                        tablinks[i].className += " active";
+                        break;
+                    }
+                }
+            }
+            
+            if (scrollToTab && currentTab) {
+                // Scroll to the tab content area or the tabs themselves for better visibility
+                const tabsContainer = document.querySelector('.tabs');
+                if (tabsContainer) {
+                    tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        // Ensure the "Contact Me" button in the pitch section correctly calls openTab
+        // The button's onclick is already set to: openTab(event, 'Contact', true)
+        // We need to pass null or a mock event for the first argument if not from a direct tab click.
+        // The updated openTab function handles this.
+
+        // Initialize the first tab (About) to be open on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            openTab(null, 'About'); // Open 'About' tab by default
+             // Ensure the 'About' tab link is also marked active
+            const aboutTabLink = document.querySelector('.tab-link[onclick*="\'About\'"]');
+            if(aboutTabLink) {
+                aboutTabLink.className += ' active';
+            }
+        });
+
+
+        // Basic form submission handler (for demonstration, actual submission needs backend/service)
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                // To prevent actual submission if you're just testing client-side
+                // event.preventDefault(); 
+                
+                // For a real form, you'd let it submit to your Formspree URL or handle with AJAX.
+                // For now, we can just log it.
+                console.log('Form submitted (or would be, to ' + this.action + ')');
+                
+                // If using a service like Formspree, it will handle the redirect/thank you page.
+                // If handling with AJAX, you would add your fetch/XHR code here.
+                // alert('Thank you for your message!'); // Optional: client-side confirmation
+                // this.reset(); // Optional: reset form fields
+            });
+        }
+    </script>
+</body>
+</html>
