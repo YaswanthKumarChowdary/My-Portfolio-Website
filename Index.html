@@ -4,40 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yaswanth Kumar Jillellamudi - Salesforce Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Multiple Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --dark-bg: #0A192F; /* Deep Navy */
-            --light-slate: #CCD6F6; /* Light text */
-            --slate: #8892B0; /* Subtler text, borders */
-            --accent-primary: #64FFDA; /* Bright Aqua/Teal - Main Accent */
-            --accent-secondary: #7FDBFF; /* Lighter Sky Blue for highlights */
-            --accent-primary-hover: #52D0B8;
-            --accent-secondary-hover: #6BC6E3;
-            --card-bg: #112240; /* Slightly lighter navy for cards/tabs */
-            --border-color: #233554;
+            --dark-bg: #FFFFFF;
+            --light-slate: #333333;
+            --slate: #555555;
+            --accent-primary: #007BFF;
+            --accent-secondary: #00C6FF;
+            --accent-primary-hover: #0056b3;
+            --accent-secondary-hover: #00A0CC;
+            --card-bg: #F8F9FA;
+            --border-color: #DDDDDD;
             --text-gradient: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            --hero-gradient: linear-gradient(120deg, #007BFF 0%, #00C6FF 100%);
         }
 
         body {
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg); /* This will be the fallback if the image doesn't load */
+            background: linear-gradient(180deg, #F4F6FA 0%, #E9ECF3 100%);
             color: var(--light-slate);
             line-height: 1.7;
             font-size: 16px;
-            overflow-x: hidden; /* Prevent horizontal scroll from subtle animations */
-
-            /* --- Dot pattern background properties --- */
-            background-image: radial-gradient(var(--border-color) 1px, transparent 1.5px); /* Creates dots: dot color, dot size, transparent gap */
-            background-size: 20px 20px; /* Spacing of the dots */
-            /* background-position is not strictly needed here as repeat handles it, but 0 0 is default */
-            background-repeat: repeat; /* Repeat the pattern */
-            background-attachment: fixed; /* Pattern stays fixed while scrolling */
-            /* --- End of dot pattern properties --- */
+            overflow-x: hidden;
         }
+
+        /* Decorative Divider */
+        .decorative-divider {
+            width: 120px;
+            height: 6px;
+            background: var(--text-gradient);
+            border-radius: 3px;
+            margin: 0 auto 30px auto;
+        }
+
         .container {
             width: 90%;
             max-width: 1100px;
@@ -46,38 +50,39 @@
             padding: 20px;
         }
         header {
-            background: transparent; /* Header blends with body */
+            background: transparent;
             color: var(--light-slate);
-            padding: 2rem 0;
+            padding: 2rem 0 1rem 0;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
-            position: relative; /* For potential pseudo-elements */
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
         }
         header h1 {
+            font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
             margin: 0;
-            font-size: 2.8rem;
-            /* color: var(--accent-primary); */
+            font-size: 2.4rem;
             font-weight: 700;
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
+            letter-spacing: 1.5px;
         }
         header p {
-            font-size: 1.4rem;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 1.2rem;
             color: var(--slate);
             margin-top: 0.5rem;
-            /* You can add your email here if desired, e.g., */
-            /* content: "Salesforce Developer | jyaswanthj@gmail.com"; */
+            font-weight: 400;
         }
-        
+
         /* Tab System */
         .tabs {
             display: flex;
             justify-content: center;
             margin-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1.5px solid var(--border-color);
         }
         .tab-link {
             background-color: transparent;
@@ -87,90 +92,103 @@
             cursor: pointer;
             padding: 14px 20px;
             font-size: 1.1rem;
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 600;
-            transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
+            transition: color 0.3s, border-bottom-color 0.3s, transform 0.2s;
             border-bottom: 3px solid transparent;
         }
-        .tab-link:hover {
-            color: var(--accent-primary);
-            transform: translateY(-2px);
-        }
-        .tab-link.active {
+        .tab-link:hover, .tab-link.active {
             color: var(--accent-primary);
             border-bottom: 3px solid var(--accent-primary);
+            transform: translateY(-2px);
         }
         .tab-content {
             display: none;
-            padding: 30px; /* Increased padding */
+            padding: 30px;
             background: var(--card-bg);
-            border-radius: 8px;
-            animation: fadeIn 0.6s ease-out; /* Smoother animation */
+            border-radius: 12px;
+            animation: fadeIn 0.6s ease-out;
             border: 1px solid var(--border-color);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Enhanced shadow */
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(15px);}
+            to { opacity: 1; transform: translateY(0);}
         }
 
-        section#pitch { /* Special styling for the pitch section */
+        section#pitch {
             padding: 30px;
             margin-bottom: 30px;
             background: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 12px;
             text-align: center;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+            background-image: repeating-linear-gradient(135deg, #e3f0fa 0 2px, transparent 2px 40px);
         }
 
         h2 {
+            font-family: 'Montserrat', Arial, sans-serif;
             color: var(--accent-primary);
-            border-bottom: none; /* Remove old border */
+            border-bottom: none;
             padding-bottom: 0;
             margin-top: 0;
             margin-bottom: 20px;
-            font-size: 2rem; /* Slightly larger section titles */
-            font-weight: 600;
-            display: flex; /* For icon alignment */
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
             align-items: center;
+            letter-spacing: 1px;
         }
-        h2 .fas { /* Icon styling within h2 */
+        h2 .fas {
             margin-right: 10px;
             font-size: 1.8rem;
             color: var(--accent-secondary);
         }
-
+        h3 {
+            font-family: 'Poppins', Arial, sans-serif;
+            color: var(--accent-primary-hover);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
         p, ul li {
+            font-family: 'Roboto', Arial, sans-serif;
             color: var(--light-slate);
             font-size: 1rem;
             margin-bottom: 1rem;
         }
         strong {
-            color: var(--accent-secondary); /* Use secondary accent for strong tags */
-            font-weight: 600;
+            color: var(--accent-secondary);
+            font-weight: 700;
+            font-family: 'Montserrat', Arial, sans-serif;
+            letter-spacing: 0.5px;
         }
         ul {
             list-style: none;
             padding-left: 0;
         }
         ul li {
+            font-family: 'Roboto', Arial, sans-serif;
             padding-left: 1.5em;
             position: relative;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            border-radius: 4px; /* For hover effect */
-            margin-bottom: 0.8rem; /* Spacing between list items */
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
         }
         ul li:hover {
-            background-color: rgba(var(--accent-primary-rgb, 100, 255, 218), 0.05); /* Subtle hover on list items */
+            background-color: rgba(var(--accent-primary-rgb, 0,123,255), 0.07);
             transform: translateX(5px);
         }
         ul li::before {
-            content: '▹'; /* Techy bullet */
+            content: '▹';
             position: absolute;
             left: 0;
             color: var(--accent-primary);
             font-weight: bold;
-            line-height: 1.7; /* Align with text */
+            line-height: 1.7;
+            font-family: 'Montserrat', Arial, sans-serif;
         }
 
         .profile-picture-container {
@@ -184,60 +202,100 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent-secondary);
-            box-shadow: 0 0 15px rgba(var(--accent-secondary-rgb, 127, 219, 255), 0.5);
-            /* Add a class for a placeholder image if you want to style it differently */
+            box-shadow: 0 0 15px rgba(var(--accent-secondary-rgb, 0,198,255), 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .profile-picture:hover {
+            transform: scale(1.04) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(var(--accent-secondary-rgb, 0,198,255), 0.25);
         }
 
         .job-title, .project-title {
-            font-weight: 600;
-            color: var(--light-slate);
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            color: var(--accent-primary-hover);
             font-size: 1.1rem;
             display: block;
             margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
         }
         .company-name, .project-client {
+            font-family: 'Poppins', Arial, sans-serif;
             font-style: italic;
             color: var(--slate);
             display: block;
             margin-bottom: 0.25rem;
         }
         .job-dates, .project-timeline {
-            font-size: 0.9rem;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 0.95rem;
             color: var(--accent-secondary);
             display: block;
             margin-bottom: 0.5rem;
         }
         .job-description ul, .project-description ul {
             margin-top: 0.5rem;
-            padding-left: 0; /* Reset padding as li::before handles indent */
+            padding-left: 0;
         }
         .job-description ul li, .project-description ul li {
-            font-size: 0.95rem;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 0.97rem;
             margin-bottom: 0.5rem;
         }
-
 
         .button {
             display: inline-block;
             background: var(--accent-primary);
-            color: var(--dark-bg); /* Text color for buttons */
+            color: #FFFFFF;
             padding: 12px 25px;
             text-decoration: none;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 700;
             margin-top: 15px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.12);
         }
         .button:hover {
             background: var(--accent-primary-hover);
-            transform: translateY(-3px); /* More pronounced hover */
-            box-shadow: 0 4px 10px rgba(var(--accent-primary-rgb, 100, 255, 218), 0.3);
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 4px 16px rgba(var(--accent-primary-rgb, 0,123,255), 0.18);
         }
         
+        .project-image {
+            width: 100%;
+            max-width: 420px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--border-color);
+        }
+        .project-image:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 8px 32px rgba(0,123,255,0.13);
+            border-color: var(--accent-primary);
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 18px 22px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border-color);
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        .project-card:hover {
+            box-shadow: 0 8px 32px rgba(0,123,255,0.10);
+            border-color: var(--accent-primary);
+        }
+
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -245,6 +303,7 @@
             color: var(--slate);
             margin-top: 40px;
             border-top: 1px solid var(--border-color);
+            font-family: 'Roboto', Arial, sans-serif;
         }
         .form-group {
             margin-bottom: 20px;
@@ -254,6 +313,7 @@
             margin-bottom: 8px;
             color: var(--slate);
             font-weight: 600;
+            font-family: 'Poppins', Arial, sans-serif;
         }
         .form-group input,
         .form-group textarea {
@@ -261,19 +321,21 @@
             padding: 12px;
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            background-color: var(--dark-bg); /* Input background */
-            color: var(--light-slate); /* Input text color */
+            background-color: #FFFFFF;
+            color: var(--light-slate);
             font-size: 1rem;
+            font-family: 'Roboto', Arial, sans-serif;
         }
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: var(--slate);
+            font-family: 'Poppins', Arial, sans-serif;
         }
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb, 100, 255, 218), 0.3); /* Adjusted focus shadow */
+            box-shadow: 0 0 0 3px rgba(var(--accent-primary-rgb, 0,123,255), 0.18);
         }
 
         .social-links {
@@ -287,53 +349,73 @@
             margin-right: 15px;
             text-decoration: none;
             color: var(--accent-primary);
-            font-weight: 600;
-            transition: color 0.3s ease, transform 0.2s ease;
-            display: inline-block; /* For transform */
+            font-weight: 700;
+            font-family: 'Poppins', Arial, sans-serif;
+            transition: color 0.3s, transform 0.2s;
+            display: inline-block;
         }
         .social-links a:hover {
             color: var(--accent-primary-hover);
             transform: scale(1.1);
         }
 
-        /* Skill tags example styling */
         .skills-container {
             margin-top: 20px;
             padding-top: 15px;
             border-top: 1px dashed var(--border-color);
         }
+        .skills-container h3, 
+        .education-container h3, 
+        .certifications-container h3 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: var(--accent-primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .skills-container h3 .fas,
+        .education-container h3 .fas,
+        .certifications-container h3 .fas {
+            margin-right: 8px;
+            font-size: 1.3rem;
+            color: var(--accent-secondary);
+        }
         .skill-tag {
             display: inline-block;
             background-color: var(--border-color);
-            color: var(--accent-secondary);
+            color: var(--slate);
             padding: 6px 12px;
             margin: 5px;
             border-radius: 20px;
             font-size: 0.9rem;
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 500;
             transition: background-color 0.3s, color 0.3s;
         }
         .skill-tag:hover {
             background-color: var(--accent-primary);
-            color: var(--dark-bg);
+            color: #FFFFFF;
         }
-
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Yaswanth Kumar Jillellamudi</h1>
-            <p>Salesforce Developer</p>
-        </div>
+        <h1>Yaswanth Kumar Jillellamudi</h1>
+        <p>Salesforce Developer</p>
     </header>
 
     <div class="container">
         <section id="pitch">
             <h2><i class="fas fa-rocket"></i> Welcome!</h2>
             <p>
-                A <strong>Salesforce Developer</strong> with a passion for designing scalable solutions and optimizing business processes.
-                Explore my journey and projects below.
+                <span style="font-family:'Montserrat',Arial,sans-serif;font-size:1.15rem;color:var(--accent-primary);font-weight:600;">
+                    A Salesforce Developer passionate about scalable solutions and business process optimization.
+                </span>
+                <br>
+                <span style="font-family:'Roboto',Arial,sans-serif;color:var(--slate);font-size:1rem;">
+                    Explore my journey, skills, and projects below.
+                </span>
             </p>
             <button class="button" onclick="openTab(event, 'Contact', true)">Contact Me</button>
         </section>
@@ -348,11 +430,16 @@
         <div id="About" class="tab-content" style="display:block;">
             <h2><i class="fas fa-id-card"></i> About Me</h2>
             <div class="profile-picture-container">
-                <img src="https://via.placeholder.com/180" alt="Yaswanth Kumar Jillellamudi" class="profile-picture">
-                <!-- IMPORTANT: Replace https://via.placeholder.com/180 with the actual path to your profile picture -->
+                <img src="https://avatars.githubusercontent.com/u/9919?s=180&v=4" alt="Yaswanth Kumar Jillellamudi" class="profile-picture">
             </div>
             <p>
-                Salesforce Developer with over <strong>5 years of experience</strong> designing scalable Salesforce solutions across financial, media, payroll, and enterprise domains. Skilled in Apex, LWC, Flows, Triggers, and REST/SOAP integrations. Strong track record of automating lead/opportunity management, supporting payroll data accuracy, and integrating third-party systems. Salesforce Certified Admin, Platform Developer I & II. Experienced in Agile, end-to-end SDLC, and business process optimization. Known for delivering with integrity, collaborating effectively across Agile teams, and taking ownership of business-critical solutions. Committed to continuous improvement and cross-functional support.
+                <span style="font-family:'Montserrat',Arial,sans-serif;font-size:1.1rem;color:var(--accent-primary-hover);font-weight:600;">
+                    Salesforce Developer with over <strong>5 years of experience</strong> designing scalable Salesforce solutions across financial, media, payroll, and enterprise domains.
+                </span>
+                <br>
+                <span style="font-family:'Roboto',Arial,sans-serif;color:var(--slate);font-size:1rem;">
+                    Skilled in Apex, LWC, Flows, Triggers, and REST/SOAP integrations. Strong track record of automating lead/opportunity management, supporting payroll data accuracy, and integrating third-party systems. Salesforce Certified Admin, Platform Developer I & II. Experienced in Agile, end-to-end SDLC, and business process optimization. Known for delivering with integrity, collaborating effectively across Agile teams, and taking ownership of business-critical solutions. Committed to continuous improvement and cross-functional support.
+                </span>
             </p>
             
             <div class="skills-container">
@@ -400,7 +487,7 @@
                 <span class="skill-tag">Regression Testing</span>
             </div>
 
-            <div class="education-container skills-container"> <!-- Re-use skills-container styling for consistency -->
+            <div class="education-container skills-container">
                 <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                 <ul>
                     <li><strong>Master of Science in Business Analytics (MSBA)</strong> - Trine University, Phoenix, AZ (Dec 2024)</li>
@@ -409,7 +496,7 @@
                 </ul>
             </div>
 
-            <div class="certifications-container skills-container"> <!-- Re-use skills-container styling for consistency -->
+            <div class="certifications-container skills-container">
                 <h3><i class="fas fa-certificate"></i> Certifications</h3>
                 <ul>
                     <li>Salesforce Certified Administrator</li>
@@ -483,60 +570,63 @@
 
         <div id="Projects" class="tab-content">
             <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
-            <ul>
-                <li>
-                    <span class="project-title">Payroll & Attendance Reconciliation – Brightmind Enrichment</span>
-                    <span class="project-timeline">Timeline: Mar 2025 – Present</span>
-                    <div class="project-description">
-                        <ul>
-                            <li>Developed Excel- and Power BI-based dashboards that reconcile ≈ 50K daily attendance and payroll rows via Bulk API.</li>
-                            <li>Added Python/SQL ETL and Flow-driven alerts, enabling real-time issue detection and cutting payroll discrepancies 50%.</li>
-                            <li>Automated monthly compliance snapshots for Finance, trimming audit turnaround time 60%.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <span class="project-title">Casting & Finance Automation – Amigos Creations</span>
-                    <span class="project-timeline">Timeline: Jan 2021 – Jul 2023</span>
-                    <div class="project-description">
-                        <ul>
-                            <li>Experience Cloud Audition Portal: Built an LWC portal that captures ≈ 5,000 audition leads per film via Apex REST; Platform Events refresh “Candidate” dashboards instantly, eliminating CSV uploads.</li>
-                            <li>Screening & Task Automation: Wrote Apex triggers and record-triggered Flows to auto-score profiles and open Screen-Test tasks, shrinking first-round screening 10 d → 2 d.</li>
-                            <li>Budget & SAP Integration: Modeled a Shield-encrypted Film Budget object with multi-level approvals and synced spend/royalties to SAP S/4HANA through MuleSoft External Services (JSON/REST) with 99.8% accuracy.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <span class="project-title">Lead Assignment Optimization – Banking Client (VSPN & Co.)</span>
-                    <span class="project-timeline">Timeline: Jun 2020 – Dec 2020</span>
-                    <div class="project-description">
-                        <ul>
-                            <li>Designed a metadata-driven Batch Apex router that distributes 100K+ leads/day according to rep bandwidth; backlog shrank 90%.</li>
-                            <li>Tuned SOQL and indexes, reducing nightly job runtime from 75 min → 15 min and speeding lead-to-contact conversions.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <span class="project-title">Opportunity Renewal Automation – Real Estate Client (VSPN & Co.)</span>
-                    <span class="project-timeline">Timeline: Oct 2019 – May 2020</span>
-                    <div class="project-description">
-                        <ul>
-                            <li>Built Flow-based renewal engine using 70+ pricing factors stored in Custom Metadata; manual effort fell 75%.</li>
-                            <li>Added Scheduled Apex reminders and standardized email templates, boosting renewal engagement 28%.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <span class="project-title">Quote-to-Invoice Automation – Healthcare Client (VSPN & Co.)</span>
-                    <span class="project-timeline">Timeline: Feb 2019 – Sep 2019</span>
-                    <div class="project-description">
-                        <ul>
-                            <li>Linked Salesforce CPQ to Oracle Financials via REST, cutting billing cycles 40% and pushing data accuracy to 99.9%.</li>
-                            <li>Implemented validation triggers and > 90% test coverage, delivering zero post-production defects.</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+            <div class="project-card">
+                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Payroll & Attendance Reconciliation" /> -->
+                <span class="project-title">Payroll & Attendance Reconciliation – Brightmind Enrichment</span>
+                <span class="project-timeline">Timeline: Mar 2025 – Present</span>
+                <div class="project-description">
+                    <ul>
+                        <li>Developed Excel- and Power BI-based dashboards that reconcile ≈ 50K daily attendance and payroll rows via Bulk API.</li>
+                        <li>Added Python/SQL ETL and Flow-driven alerts, enabling real-time issue detection and cutting payroll discrepancies 50%.</li>
+                        <li>Automated monthly compliance snapshots for Finance, trimming audit turnaround time 60%.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Casting & Finance Automation" /> -->
+                <span class="project-title">Casting & Finance Automation – Amigos Creations</span>
+                <span class="project-timeline">Timeline: Jan 2021 – Jul 2023</span>
+                <div class="project-description">
+                    <ul>
+                        <li>Experience Cloud Audition Portal: Built an LWC portal that captures ≈ 5,000 audition leads per film via Apex REST; Platform Events refresh “Candidate” dashboards instantly, eliminating CSV uploads.</li>
+                        <li>Screening & Task Automation: Wrote Apex triggers and record-triggered Flows to auto-score profiles and open Screen-Test tasks, shrinking first-round screening 10 d → 2 d.</li>
+                        <li>Budget & SAP Integration: Modeled a Shield-encrypted Film Budget object with multi-level approvals and synced spend/royalties to SAP S/4HANA through MuleSoft External Services (JSON/REST) with 99.8% accuracy.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Lead Assignment Optimization" /> -->
+                <span class="project-title">Lead Assignment Optimization – Banking Client (VSPN & Co.)</span>
+                <span class="project-timeline">Timeline: Jun 2020 – Dec 2020</span>
+                <div class="project-description">
+                    <ul>
+                        <li>Designed a metadata-driven Batch Apex router that distributes 100K+ leads/day according to rep bandwidth; backlog shrank 90%.</li>
+                        <li>Tuned SOQL and indexes, reducing nightly job runtime from 75 min → 15 min and speeding lead-to-contact conversions.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="Opportunity Renewal Automation" /> -->
+                <span class="project-title">Opportunity Renewal Automation – Real Estate Client (VSPN & Co.)</span>
+                <span class="project-timeline">Timeline: Oct 2019 – May 2020</span>
+                <div class="project-description">
+                    <ul>
+                        <li>Built Flow-based renewal engine using 70+ pricing factors stored in Custom Metadata; manual effort fell 75%.</li>
+                        <li>Added Scheduled Apex reminders and standardized email templates, boosting renewal engagement 28%.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Quote-to-Invoice Automation" /> -->
+                <span class="project-title">Quote-to-Invoice Automation – Healthcare Client (VSPN & Co.)</span>
+                <span class="project-timeline">Timeline: Feb 2019 – Sep 2019</span>
+                <div class="project-description">
+                    <ul>
+                        <li>Linked Salesforce CPQ to Oracle Financials via REST, cutting billing cycles 40% and pushing data accuracy to 99.9%.</li>
+                        <li>Implemented validation triggers and > 90% test coverage, delivering zero post-production defects.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div id="Contact" class="tab-content">
@@ -560,25 +650,15 @@
             </form>
             <div class="social-links">
                 <p>You can also find me on:</p>
-                <a href="https://twitter.com/YourTwitterHandle" target="_blank"><i class="fab fa-twitter"></i> Twitter</a> <!-- IMPORTANT: Update YourTwitterHandle -->
-                <a href="https://linkedin.com/in/YourLinkedInUsername" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a> <!-- IMPORTANT: Update YourLinkedInUsername -->
-                <a href="https://github.com/YourGitHubUsername" target="_blank"><i class="fab fa-github"></i> GitHub</a> <!-- IMPORTANT: Update YourGitHubUsername -->
+                <a href="https://twitter.com/YourTwitterHandle" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://linkedin.com/in/YourLinkedInUsername" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="https://github.com/YourGitHubUsername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; <span id="year"></span> Yaswanth Kumar Jillellamudi. All rights reserved.</p>
-        <!-- Optional: Add Google Analytics script here if you have an ID -->
-        <!--
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-YOUR-ANALYTICS-ID"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'UA-YOUR-ANALYTICS-ID'); // IMPORTANT: Replace with your Google Analytics ID
-        </script>
-        -->
     </footer>
 
     <script>
@@ -591,51 +671,40 @@
             
             const accentPrimaryColor = rootStyles.getPropertyValue('--accent-primary').trim();
             if (accentPrimaryColor) {
-                const accentPrimaryRgb = accentPrimaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '100, 255, 218'; // Default if parse fails
+                const accentPrimaryRgb = accentPrimaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '0,123,255';
                 document.documentElement.style.setProperty('--accent-primary-rgb', accentPrimaryRgb);
             }
 
             const accentSecondaryColor = rootStyles.getPropertyValue('--accent-secondary').trim();
             if (accentSecondaryColor) {
-                const accentSecondaryRgb = accentSecondaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '127, 219, 255'; // Default if parse fails
+                const accentSecondaryRgb = accentSecondaryColor.match(/\w\w/g)?.map(x => parseInt(x, 16)).join(',') || '0,198,255';
                 document.documentElement.style.setProperty('--accent-secondary-rgb', accentSecondaryRgb);
             }
             
-            openTab(null, 'About'); // Open 'About' tab by default
+            openTab(null, 'About');
             const aboutTabLink = document.querySelector('.tab-link[onclick*="\'About\'"]');
-            if(aboutTabLink && !aboutTabLink.classList.contains('active')) { // Check if not already active
+            if(aboutTabLink && !aboutTabLink.classList.contains('active')) {
                 aboutTabLink.className += ' active';
             }
         });
 
-
         function openTab(evt, tabName, scrollToTab = false) {
             var i, tabcontent, tablinks;
-
-            // Get all elements with class="tab-content" and hide them
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-
-            // Get all elements with class="tab-link" and remove the class "active"
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
             const currentTab = document.getElementById(tabName);
             if (currentTab) {
                 currentTab.style.display = "block";
             }
-            
-            // If evt is a real event (from tab click), use currentTarget. Otherwise, find the button by tabName.
             if (evt && evt.currentTarget) {
                  evt.currentTarget.className += " active";
             } else {
-                // Find the tab link that corresponds to tabName and make it active
-                // This is for the "Contact Me" button in the pitch section
                 for (i = 0; i < tablinks.length; i++) {
                     if (tablinks[i].textContent === tabName || tablinks[i].getAttribute('onclick').includes("'" + tabName + "'")) {
                         tablinks[i].className += " active";
@@ -643,9 +712,7 @@
                     }
                 }
             }
-            
             if (scrollToTab && currentTab) {
-                // Scroll to the tab content area or the tabs themselves for better visibility
                 const tabsContainer = document.querySelector('.tabs');
                 if (tabsContainer) {
                     tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -653,37 +720,19 @@
             }
         }
 
-        // Ensure the "Contact Me" button in the pitch section correctly calls openTab
-        // The button's onclick is already set to: openTab(event, 'Contact', true)
-        // We need to pass null or a mock event for the first argument if not from a direct tab click.
-        // The updated openTab function handles this.
-
-        // Initialize the first tab (About) to be open on page load
         document.addEventListener('DOMContentLoaded', function() {
-            openTab(null, 'About'); // Open 'About' tab by default
-             // Ensure the 'About' tab link is also marked active
+            openTab(null, 'About');
             const aboutTabLink = document.querySelector('.tab-link[onclick*="\'About\'"]');
             if(aboutTabLink) {
                 aboutTabLink.className += ' active';
             }
         });
 
-
-        // Basic form submission handler (for demonstration, actual submission needs backend/service)
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(event) {
-                // To prevent actual submission if you're just testing client-side
                 // event.preventDefault(); 
-                
-                // For a real form, you'd let it submit to your Formspree URL or handle with AJAX.
-                // For now, we can just log it.
                 console.log('Form submitted (or would be, to ' + this.action + ')');
-                
-                // If using a service like Formspree, it will handle the redirect/thank you page.
-                // If handling with AJAX, you would add your fetch/XHR code here.
-                // alert('Thank you for your message!'); // Optional: client-side confirmation
-                // this.reset(); // Optional: reset form fields
             });
         }
     </script>
