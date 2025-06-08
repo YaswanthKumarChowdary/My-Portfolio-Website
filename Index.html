@@ -76,6 +76,15 @@
             margin-top: 0.5rem;
             font-weight: 400;
         }
+        header p.contact-info {
+            font-size: 1rem;
+            color: var(--slate);
+            margin: 0.2rem 0 0.5rem 0;
+        }
+        header p.contact-info a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
 
         /* Tab System */
         .tabs {
@@ -403,6 +412,9 @@
     <header>
         <h1>Yaswanth Kumar Jillellamudi</h1>
         <p>Salesforce Developer</p>
+        <p class="contact-info">
+            (603) 540-1510 &bull; <a href="mailto:jyaswanthj@gmail.com">jyaswanthj@gmail.com</a>
+        </p>
     </header>
 
     <div class="container">
@@ -417,7 +429,6 @@
                     Explore my journey, skills, and projects below.
                 </span>
             </p>
-            <button class="button" onclick="openTab(event, 'Contact', true)">Contact Me</button>
         </section>
 
         <div class="tabs">
@@ -434,14 +445,13 @@
             </div>
             <p>
                 <span style="font-family:'Montserrat',Arial,sans-serif;font-size:1.1rem;color:var(--accent-primary-hover);font-weight:600;">
-                    Salesforce Developer with over <strong>5 years of experience</strong> designing scalable Salesforce solutions across financial, media, payroll, and enterprise domains.
+                    Salesforce Developer with 5+ years of experience automating business processes, integrating cloud solutions, and delivering scalable Salesforce platforms for diverse industries.
                 </span>
                 <br>
                 <span style="font-family:'Roboto',Arial,sans-serif;color:var(--slate);font-size:1rem;">
-                    Skilled in Apex, LWC, Flows, Triggers, and REST/SOAP integrations. Strong track record of automating lead/opportunity management, supporting payroll data accuracy, and integrating third-party systems. Salesforce Certified Admin, Platform Developer I & II. Experienced in Agile, end-to-end SDLC, and business process optimization. Known for delivering with integrity, collaborating effectively across Agile teams, and taking ownership of business-critical solutions. Committed to continuous improvement and cross-functional support.
+                    Specialized in Apex, LWC, Flows, and integrations (REST/SOAP/MuleSoft). Proven record in lead-to-cash automation, CPQ, Field Service, and healthcare/manufacturing solutions. Passionate about optimizing business outcomes and collaborating with cross-functional teams.
                 </span>
             </p>
-            
             <div class="skills-container">
                 <h3><i class="fas fa-cogs"></i> Technical & Analytical Skills</h3>
                 <span class="skill-tag">Apex</span>
@@ -486,24 +496,21 @@
                 <span class="skill-tag">Deployment Validation</span>
                 <span class="skill-tag">Regression Testing</span>
             </div>
-
             <div class="education-container skills-container">
                 <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                 <ul>
-                    <li><strong>Master of Science in Business Analytics (MSBA)</strong> - Trine University, Phoenix, AZ (Dec 2024)</li>
-                    <li><strong>Master of Business Administration in Finance and Marketing (MBA)</strong> - Vignan Institute of Information Technology, Visakhapatnam, India (September 2022)</li>
-                    <li><strong>Bachelor’s Degree</strong> - Andhra University, Visakhapatnam, India (May 2019)</li>
+                    <li><strong>Master of Science in Business Analytics (MSBA)</strong> - Trine University, USA</li>
+                    <li><strong>Master of Business Administration in Finance and Marketing (MBA)</strong> - VIIT, India</li>
+                    <li><strong>Bachelor’s Degree</strong> - Andhra University, India</li>
                 </ul>
             </div>
-
             <div class="certifications-container skills-container">
                 <h3><i class="fas fa-certificate"></i> Certifications</h3>
                 <ul>
                     <li>Salesforce Certified Administrator</li>
                     <li>Salesforce Certified Platform Developer I</li>
                     <li>Salesforce Certified Platform Developer II</li>
-                    <li>Financial Modeling & Valuation – CFI</li>
-                    <li>Excel Fundamentals for Data Analysis – Microsoft</li>
+                    <li>Experienced in Sales Cloud &amp; Service Cloud</li>
                 </ul>
             </div>
         </div>
@@ -512,56 +519,37 @@
             <h2><i class="fas fa-history"></i> Professional Experience</h2>
             <ul>
                 <li>
-                    <span class="job-title">Business Analyst</span>
-                    <span class="company-name">Brightmind Enrichment – San Francisco, CA</span>
-                    <span class="job-dates">March 2025 – Till Date</span>
-                    <div class="job-description">
-                        <ul>
-                            <li>Collaborate with cross-functional teams to optimize academic and payroll data workflows.</li>
-                            <li>Support reconciliation of employee attendance and payroll data.</li>
-                            <li>Generate ad-hoc reports and metrics to support program impact and operational audits.</li>
-                            <li>Assist in automating performance tracking and reporting through Excel and BI tools.</li>
-                            <li>Contributed to standardizing payroll exception reporting, reducing audit turnaround time.</li>
-                            <li>Coordinated with technical stakeholders to improve ETL workflows supporting HR/payroll systems.</li>
-                            <li>Documented process improvements and conducted knowledge transfers to operational teams.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
                     <span class="job-title">Salesforce Developer</span>
                     <span class="company-name">Amigos Creations Private Limited – Hyderabad, India</span>
                     <span class="job-dates">Jan 2021 – July 2023</span>
                     <div class="job-description">
                         <ul>
-                            <li>Designed an Experience Cloud audition portal (LWC + Apex REST) that captures 5,000+ profiles per film; Platform Events update “Candidate” dashboards in real time, eliminating manual uploads.</li>
-                            <li>Built Apex triggers & record-triggered flows to auto-score applicants and create Screen-Test tasks, cutting first-round screening 10 days → 2 days.</li>
-                            <li>Modeled a custom Film Budget object and multi-level approval chain (Dynamic Forms, Shield encryption), speeding CAPEX/OPEX sign-offs 60%.</li>
-                            <li>Integrated SAP S/4HANA finance via MuleSoft External Services and Named Credentials; data-sync accuracy hit 99.8% and retired weekly CSV imports.</li>
-                            <li>Migrated 40 Visualforce pages to LWCs, trimming mobile page-load times 45% and boosting on-set update adoption 30%.</li>
-                            <li>Wrote nightly Batch & Scheduled Apex jobs that reconcile box-office, OTT, and sponsorship revenue into Tableau CRM P&L dashboards.</li>
-                            <li>Introduced SFDX + GitHub Actions CI/CD (35 releases, 92% test coverage, zero rollbacks) and mentored 4 junior developers to PD1 certification.</li>
+                            <li>Automated lead-to-cash process with Apex triggers, reducing sales conversion cycle by 35%</li>
+                            <li>Deployed Field Service Lightning with IoT integration, improving first-time fix rate by 28%</li>
+                            <li>Developed APTTUS CPQ solution with custom LWC components, cutting quote generation time by 30%</li>
+                            <li>Built opportunity renewal automation using Batch Apex, increasing renewals by 22%</li>
+                            <li>Created 35+ complex automation workflows using Flows and Process Builder</li>
+                            <li>Spearheaded the integration of Salesforce Sales Cloud with Marketo using custom Apex, improving lead nurturing effectiveness and increasing marketing-qualified leads by 18%</li>
+                            <li>Enhanced 8+ customer-facing REST APIs with OAuth 2.0, reducing latency by 40%</li>
+                            <li>Developed film rights management system using Custom Objects, managing 500+ intellectual properties</li>
                         </ul>
                     </div>
                 </li>
                 <li>
                     <span class="job-title">Salesforce Developer</span>
-                    <span class="company-name">VSPN & Co., Hyderabad, India</span>
+                    <span class="company-name">VSPN &amp; Co., Hyderabad, India</span>
                     <span class="job-dates">July 2018 – Dec 2020</span>
                     <div class="job-description">
                         <ul>
-                            <li>Delivered Salesforce solutions for clients in banking, healthcare, and real estate domains.</li>
-                            <li>Developed Apex triggers, batch classes, and schedulable jobs to automate lead assignment logic for 100K+ daily leads.</li>
-                            <li>Integrated Salesforce with Oracle, PeopleSoft, and Tibco via REST/SOAP APIs and MuleSoft for seamless data sync.</li>
-                            <li>Automated lead conversion via Excel + Data Loader + Apex; reduced manual entry time from 23 to 5 mins.</li>
-                            <li>Built Opportunity Renewal automation using Flows and Custom Metadata to drive pricing logic (70+ factors).</li>
-                            <li>Developed Lightning components and UI features for product recommendations linked to Opportunities & Cases.</li>
-                            <li>Followed full SDLC processes and collaborated with DevOps teams to maintain consistent CI/CD pipelines via Azure DevOps and GitHub.</li>
-                            <li>Designed end-to-end Quote to Invoice process integrated with Oracle Financials.</li>
-                            <li>Migrated legacy Salesforce Classic pages to Lightning, improving usability and adoption.</li>
-                            <li>Configured dashboards and automated workflows for case management and escalation handling.</li>
-                            <li>Designed validation logic and duplicate detection rules to improve data hygiene across lead and contact records.</li>
-                            <li>Delivered post-deployment support, CI/CD troubleshooting, and environment monitoring to ensure reliable Salesforce performance through QA, UAT, and production.</li>
-                            <li>Developed unit tests and deployment validation scripts to maintain >85% code coverage during releases.</li>
+                            <li>Engineered patient enrollment system with Health Cloud, reducing processing time by 65%</li>
+                            <li>Implemented HIPAA-compliant data encryption for 50K+ healthcare records</li>
+                            <li>Configured B2B manufacturing solutions using Cloudcraze with 15+ custom objects</li>
+                            <li>Automated supply chain alerts using Platform Events and SOAP APIs (SAP integration)</li>
+                            <li>Developed 18 custom LWC components for medical device inventory management</li>
+                            <li>Implemented REST APIs for real-time EHR data synchronization</li>
+                            <li>Implemented a custom Lightning Web Component (LWC) for visualizing sales data, providing real-time insights to sales managers and leading to a 15% faster decision-making process</li>
+                            <li>Built manufacturing defect tracking system with Apex triggers, reducing QC time by 30%</li>
+                            <li>Created predictive maintenance scheduler with Batch Apex, increasing equipment uptime by 18%</li>
                         </ul>
                     </div>
                 </li>
@@ -571,59 +559,83 @@
         <div id="Projects" class="tab-content">
             <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
             <div class="project-card">
-                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Payroll & Attendance Reconciliation" /> -->
-                <span class="project-title">Payroll & Attendance Reconciliation – Brightmind Enrichment</span>
-                <span class="project-timeline">Timeline: Mar 2025 – Present</span>
-                <div class="project-description">
-                    <ul>
-                        <li>Developed Excel- and Power BI-based dashboards that reconcile ≈ 50K daily attendance and payroll rows via Bulk API.</li>
-                        <li>Added Python/SQL ETL and Flow-driven alerts, enabling real-time issue detection and cutting payroll discrepancies 50%.</li>
-                        <li>Automated monthly compliance snapshots for Finance, trimming audit turnaround time 60%.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="project-card">
-                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Casting & Finance Automation" /> -->
-                <span class="project-title">Casting & Finance Automation – Amigos Creations</span>
+                <span class="project-title">Casting & Finance Automation</span>
                 <span class="project-timeline">Timeline: Jan 2021 – Jul 2023</span>
                 <div class="project-description">
+                    <strong>Objective:</strong> Streamline film casting workflows and integrate budget data with SAP for real-time financial control.
+                    <br>
+                    <strong>Solution:</strong>
                     <ul>
-                        <li>Experience Cloud Audition Portal: Built an LWC portal that captures ≈ 5,000 audition leads per film via Apex REST; Platform Events refresh “Candidate” dashboards instantly, eliminating CSV uploads.</li>
-                        <li>Screening & Task Automation: Wrote Apex triggers and record-triggered Flows to auto-score profiles and open Screen-Test tasks, shrinking first-round screening 10 d → 2 d.</li>
-                        <li>Budget & SAP Integration: Modeled a Shield-encrypted Film Budget object with multi-level approvals and synced spend/royalties to SAP S/4HANA through MuleSoft External Services (JSON/REST) with 99.8% accuracy.</li>
+                        <li>Developed Lightning Web Component (LWC) portal on Experience Cloud, capturing audition leads via Apex REST APIs.</li>
+                        <li>Automated candidate screening using record-triggered Flows and Apex triggers to score profiles/auto-assign tasks.</li>
+                        <li>Modeled Shield-encrypted Film Budget object with multi-step approval flows.</li>
+                        <li>Synced spend/royalty data to SAP S/4HANA via MuleSoft External Services (JSON/REST) with idempotency handling.</li>
+                    </ul>
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Eliminated manual CSV uploads; Platform Events enabled live dashboard updates for 5K+ daily leads.</li>
+                        <li>Shortlisted candidates 80% faster (10 days → 2 days).</li>
+                        <li>Achieved 99.8% data accuracy in SAP syncs across $200M+ productions.</li>
                     </ul>
                 </div>
             </div>
             <div class="project-card">
-                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Lead Assignment Optimization" /> -->
-                <span class="project-title">Lead Assignment Optimization – Banking Client (VSPN & Co.)</span>
+                <span class="project-title">Lead Assignment Optimization</span>
                 <span class="project-timeline">Timeline: Jun 2020 – Dec 2020</span>
                 <div class="project-description">
+                    <strong>Objective:</strong> Dynamically route 100K+ daily sales leads to reps based on capacity/skill.
+                    <br>
+                    <strong>Solution:</strong>
                     <ul>
-                        <li>Designed a metadata-driven Batch Apex router that distributes 100K+ leads/day according to rep bandwidth; backlog shrank 90%.</li>
-                        <li>Tuned SOQL and indexes, reducing nightly job runtime from 75 min → 15 min and speeding lead-to-contact conversions.</li>
+                        <li>Designed metadata-driven Batch Apex router with configurable rules (e.g., rep bandwidth, territory).</li>
+                        <li>Optimized SOQL queries and custom indexes to handle complex assignment logic.</li>
+                        <li>Implemented asynchronous processing for high-volume lead ingestion.</li>
+                    </ul>
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Slashed lead backlog by 90% (from 25K to 2.5K daily).</li>
+                        <li>Reduced nightly job runtime by 80% (75 min → 15 min).</li>
+                        <li>Accelerated lead-to-contact conversion by 40%.</li>
                     </ul>
                 </div>
             </div>
             <div class="project-card">
-                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80" alt="Opportunity Renewal Automation" /> -->
-                <span class="project-title">Opportunity Renewal Automation – Real Estate Client (VSPN & Co.)</span>
+                <span class="project-title">Opportunity Renewal Automation</span>
                 <span class="project-timeline">Timeline: Oct 2019 – May 2020</span>
                 <div class="project-description">
+                    <strong>Objective:</strong> Standardize renewal pricing and boost engagement for a 12K+ contract portfolio.
+                    <br>
+                    <strong>Solution:</strong>
                     <ul>
-                        <li>Built Flow-based renewal engine using 70+ pricing factors stored in Custom Metadata; manual effort fell 75%.</li>
-                        <li>Added Scheduled Apex reminders and standardized email templates, boosting renewal engagement 28%.</li>
+                        <li>Built Flow-based renewal engine referencing 70+ Custom Metadata pricing factors (e.g., usage, contract tier).</li>
+                        <li>Automated reminders via Scheduled Apex with dynamic email templates (Merged fields/Lightning Email).</li>
+                        <li>Integrated Einstein Analytics for renewal risk scoring.</li>
+                    </ul>
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Cut manual quote effort by 75% (avg. 45 min → 10 min per renewal).</li>
+                        <li>Increased renewal engagement by 28% via personalized, timed emails.</li>
+                        <li>Reduced revenue leakage by $1.2M/year through standardized pricing.</li>
                     </ul>
                 </div>
             </div>
             <div class="project-card">
-                <!-- <img class="project-image" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Quote-to-Invoice Automation" /> -->
-                <span class="project-title">Quote-to-Invoice Automation – Healthcare Client (VSPN & Co.)</span>
+                <span class="project-title">Quote-to-Invoice Automation</span>
                 <span class="project-timeline">Timeline: Feb 2019 – Sep 2019</span>
                 <div class="project-description">
+                    <strong>Objective:</strong> Connect Salesforce CPQ to Oracle Financials for error-free billing.
+                    <br>
+                    <strong>Solution:</strong>
                     <ul>
-                        <li>Linked Salesforce CPQ to Oracle Financials via REST, cutting billing cycles 40% and pushing data accuracy to 99.9%.</li>
-                        <li>Implemented validation triggers and > 90% test coverage, delivering zero post-production defects.</li>
+                        <li>Integrated Salesforce CPQ with Oracle Financials via custom REST APIs (OAuth 2.0).</li>
+                        <li>Developed Apex validation triggers for quote/contract data consistency.</li>
+                        <li>Wrote test classes with &gt;90% coverage covering bulk/edge cases.</li>
+                    </ul>
+                    <strong>Impact:</strong>
+                    <ul>
+                        <li>Shortened billing cycles by 40% (14 days → 8.5 days).</li>
+                        <li>Achieved 99.9% invoice accuracy across 8K+ monthly transactions.</li>
+                        <li>Zero defects post-launch due to robust testing.</li>
                     </ul>
                 </div>
             </div>
