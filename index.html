@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaswanth Kumar Jillellamudi - Salesforce Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">YKJ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Hi, I'm</span>
+                        <span class="title-line gradient-text">Yaswanth Kumar</span>
+                        <span class="title-line">Salesforce Developer</span>
+                    </h1>
+                    <p class="hero-description">
+                        Crafting scalable Salesforce solutions with 5+ years of experience in automation, 
+                        integrations, and business process optimization. Passionate about delivering 
+                        innovative cloud solutions that drive business growth.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('projects')">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Yaswanth Kumar Jillellamudi">
+                            <div class="profile-ring"></div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Certifications</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about creating innovative Salesforce solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        I'm a dedicated Salesforce Developer with over 5 years of experience in designing and implementing 
+                        scalable cloud solutions. My expertise spans across Apex development, Lightning Web Components, 
+                        Flow automation, and complex system integrations.
+                    </p>
+                    <p class="about-description">
+                        I've successfully delivered solutions across various industries including healthcare, manufacturing, 
+                        media, and financial services, always focusing on optimizing business processes and driving 
+                        measurable results.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-code"></i>
+                            <span>Clean, Efficient Code</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-rocket"></i>
+                            <span>Performance Optimization</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-users"></i>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Innovative Solutions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <div class="skills">
+                            <span class="skill-tag">Apex</span>
+                            <span class="skill-tag">LWC</span>
+                            <span class="skill-tag">Aura</span>
+                            <span class="skill-tag">Triggers</span>
+                            <span class="skill-tag">Batch Apex</span>
+                            <span class="skill-tag">SOQL/SOSL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Integration</h3>
+                        <div class="skills">
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">SOAP API</span>
+                            <span class="skill-tag">MuleSoft</span>
+                            <span class="skill-tag">JSON/XML</span>
+                            <span class="skill-tag">Named Credentials</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skills">
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Azure DevOps</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">JIRA</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Analytics</h3>
+                        <div class="skills">
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">Building innovative solutions across diverse industries</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Business Analyst</h3>
+                            <span class="company">Brightmind Enrichment</span>
+                            <span class="duration">March 2025 - Present</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Leading data optimization initiatives and payroll reconciliation processes for educational programs.</p>
+                            <ul class="achievement-list">
+                                <li>Optimized academic and payroll data workflows through cross-functional collaboration</li>
+                                <li>Reduced audit turnaround time through standardized payroll exception reporting</li>
+                                <li>Automated performance tracking using Excel and BI tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Salesforce Developer</h3>
+                            <span class="company">Amigos Creations Private Limited</span>
+                            <span class="duration">Jan 2021 - July 2023</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Spearheaded digital transformation initiatives in the media and entertainment industry.</p>
+                            <ul class="achievement-list">
+                                <li>Automated lead-to-cash process reducing sales conversion cycle by 35%</li>
+                                <li>Deployed Field Service Lightning with IoT integration improving first-time fix rate by 28%</li>
+                                <li>Built APTTUS CPQ solution cutting quote generation time by 30%</li>
+                                <li>Integrated Salesforce with Marketo increasing marketing-qualified leads by 18%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Salesforce Developer</h3>
+                            <span class="company">VSPN & Co.</span>
+                            <span class="duration">July 2018 - Dec 2020</span>
+                        </div>
+                        <div class="timeline-description">
+                            <p>Delivered comprehensive Salesforce solutions across healthcare and manufacturing sectors.</p>
+                            <ul class="achievement-list">
+                                <li>Engineered patient enrollment system reducing processing time by 65%</li>
+                                <li>Implemented HIPAA-compliant data encryption for 50K+ healthcare records</li>
+                                <li>Built manufacturing defect tracking system reducing QC time by 30%</li>
+                                <li>Created predictive maintenance scheduler increasing equipment uptime by 18%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Innovative solutions that drive business transformation</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Casting & Finance Automation">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Casting & Finance Automation</h3>
+                        <p class="project-description">
+                            Streamlined film casting workflows and integrated budget data with SAP for real-time financial control.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">LWC</span>
+                            <span class="tech-tag">Apex REST</span>
+                            <span class="tech-tag">MuleSoft</span>
+                            <span class="tech-tag">SAP Integration</span>
+                        </div>
+                        <div class="project-impact">
+                            <div class="impact-stat">
+                                <span class="impact-number">80%</span>
+                                <span class="impact-label">Faster Screening</span>
+                            </div>
+                            <div class="impact-stat">
+                                <span class="impact-number">5K+</span>
+                                <span class="impact-label">Daily Leads</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Lead Assignment Optimization">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Lead Assignment Optimization</h3>
+                        <p class="project-description">
+                            Dynamic lead routing system handling 100K+ daily leads with intelligent capacity and skill-based assignment.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Batch Apex</span>
+                            <span class="tech-tag">Custom Metadata</span>
+                            <span class="tech-tag">SOQL Optimization</span>
+                        </div>
+                        <div class="project-impact">
+                            <div class="impact-stat">
+                                <span class="impact-number">90%</span>
+                                <span class="impact-label">Backlog Reduction</span>
+                            </div>
+                            <div class="impact-stat">
+                                <span class="impact-number">80%</span>
+                                <span class="impact-label">Runtime Improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Opportunity Renewal Automation">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <button class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Opportunity Renewal Automation</h3>
+                        <p class="project-description">
+                            Automated renewal pricing and engagement system for 12K+ contract portfolio with Einstein Analytics integration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flow Automation</span>
+                            <span class="tech-tag">Einstein Analytics</span>
+                            <span class="tech-tag">Email Templates</span>
+                        </div>
+                        <div class="project-impact">
+                            <div class="impact-stat">
+                                <span class="impact-number">75%</span>
+                                <span class="impact-label">Effort Reduction</span>
+                            </div>
+                            <div class="impact-stat">
+                                <span class="impact-number">$1.2M</span>
+                                <span class="impact-label">Revenue Saved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to transform your business with innovative Salesforce solutions?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>jyaswanthj@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>(603) 540-1510</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/yaswanth-kumar" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yaswanth-kumar" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/yaswanth_kumar" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeokqqlo" method="POST">
+                    <input type="hidden" name="_subject" value="New contact from portfolio website">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="_replyto" required placeholder=" ">
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder=" ">
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="year"></span> Yaswanth Kumar Jillellamudi. All rights reserved.</p>
+                <p>Built with passion and modern web technologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
